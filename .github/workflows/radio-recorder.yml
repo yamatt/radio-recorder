@@ -20,12 +20,16 @@ jobs:
     steps:
       - name: Install ffmpeg
         run: sudo apt install -y ffmpeg
+      - name: Get current date and time
+        id: date
+        run: echo "::set-output name=date::$(date --iso-8601=second)"
       - name: Run ffmpeg
         run: ffmpeg -i ${{ github.event.inputs.url }} -t ${{ github.event.inputs.duration }} -f mp3 output.mp3
       - name: Save file
-        run: ls -lah output.mp3
-      - name: Save output as artefact
-        uses: actions/upload-artifact@v2
+        uses: yamatt/backblaze-b2-upload-action@v5
         with:
-          name: ${{ github.event.inputs.id }}
-          path: output.mp3
+          key_id: ${{ secrets.B2_KEY_ID }}
+          application_key: ${{ secrets.B2_APPLICATION_KEY }}
+          bucket_name: ${{ secrets.B2_BUCKET_NAME }}
+          file_path: output.mp3
+          remote_path: ${{ github.event.inputs.url }}/${{ steps.date.outputs.date }}.mp3
