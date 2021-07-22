@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Install ffmpeg
-        run: apt install -y ffmpeg libavcodec-extra-53
+        run: sudo apt install -y ffmpeg libavcodec-extra-53
       - name: Run ffmpeg
         run: ffmpeg -i ${{ github.event.inputs.url }} -t ${{ github.event.inputs.duration }} -f mp3 output.mp3
       - name: Save file
