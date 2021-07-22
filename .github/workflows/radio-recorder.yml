@@ -32,4 +32,4 @@ jobs:
           application_key: ${{ secrets.B2_APPLICATION_KEY }}
           bucket_name: ${{ secrets.B2_BUCKET_NAME }}
           file_path: output.mp3
-          remote_path: ${{ github.event.inputs.url }}/${{ steps.date.outputs.date }}.mp3
+          remote_path: ${{ github.event.inputs.id }}/${{ steps.date.outputs.date }}.mp3
