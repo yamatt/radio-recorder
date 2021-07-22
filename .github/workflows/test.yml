@@ -1,5 +1,5 @@
 ---
-name: Classic FM Recorder
+name: Test Radio Recorder
 on:
   workflow_dispatch: {}
 
