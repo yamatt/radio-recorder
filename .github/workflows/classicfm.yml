@@ -1,5 +1,5 @@
 ---
-name: Radio Recorder
+name: Classic FM Recorder
 on:
   schedule:
     - cron: "0 19 * * Sat"
