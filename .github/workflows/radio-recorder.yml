@@ -24,3 +24,8 @@ jobs:
         run: ffmpeg -i ${{ github.event.inputs.url }} -t ${{ github.event.inputs.duration }} -f mp3 output.mp3
       - name: Save file
         run: ls -lah output.mp3
+      - name: Save output as artefact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ github.event.inputs.id }}
+          path: output.mp3
