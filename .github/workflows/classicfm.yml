@@ -1,5 +1,5 @@
 ---
-name: Classic FM Recorder
+name: Classic FM - Saturday Night at the Movies
 on:
   schedule:
     - cron: "0 19 * * Sat"
