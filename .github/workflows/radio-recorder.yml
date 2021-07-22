@@ -1,0 +1,26 @@
+---
+name: Radio Recorder
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        description: 'Name and ID for the stream'
+        required: true
+      url:
+        description: 'Stream URL'
+        required: true
+      duration:
+        description: 'Length of time to record: hh:mm:ss'
+        required: true
+
+jobs:
+  record:
+    name: Record a URL
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Install ffmpeg
+        run: apt install -y ffmpeg libavcodec-extra-53
+      - name: Run ffmpeg
+        run: ffmpeg -i ${{ github.event.inputs.url }} -t ${{ github.event.inputs.duration }} -f mp3 output.mp3
+      - name: Save file
+        run: ls -lah output.mp3

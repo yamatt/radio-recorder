@@ -1,0 +1,15 @@
+---
+name: Radio Recorder
+on:
+  schedule:
+    - cron: "0 19 * * Sat"
+
+jobs:
+  record-classicfm:
+    name: Record ClassicFM
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Radio Recorder
+          inputs: '{ "id": "classicfm", "url": "http://media-ice.musicradio.com/ClassicFMMP3", "duration": "02:00:00" }'
