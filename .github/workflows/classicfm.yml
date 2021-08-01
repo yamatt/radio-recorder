@@ -13,4 +13,9 @@ jobs:
       - uses: benc-uk/workflow-dispatch@v1
         with:
           workflow: Radio Recorder
+<<<<<<< HEAD
           inputs: '{ "id": "classicfm", "url": "http://media-ice.musicradio.com/ClassicFMMP3", "duration": "02:10:00" }'
+=======
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          inputs: '{ "id": "classicfm", "url": "http://media-ice.musicradio.com/ClassicFMMP3", "duration": "02:00:00" }'
+>>>>>>> 261e448525005a5aa7c3687674bfcb3e151fb808
