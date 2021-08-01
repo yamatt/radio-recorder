@@ -2,7 +2,8 @@
 name: Classic FM - Saturday Night at the Movies
 on:
   schedule:
-    - cron: "0 19 * * Sat"
+    - cron: "55 18 * NOV-MAR Sat"
+    - cron: "55 17 * APR-OCT Sat"
 
 jobs:
   record-classicfm:
@@ -12,4 +13,4 @@ jobs:
       - uses: benc-uk/workflow-dispatch@v1
         with:
           workflow: Radio Recorder
-          inputs: '{ "id": "classicfm", "url": "http://media-ice.musicradio.com/ClassicFMMP3", "duration": "02:00:00" }'
+          inputs: '{ "id": "classicfm", "url": "http://media-ice.musicradio.com/ClassicFMMP3", "duration": "02:10:00" }'
