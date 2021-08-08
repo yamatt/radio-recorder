@@ -2,8 +2,8 @@
 name: Classic FM - Saturday Night at the Movies
 on:
   schedule:
-    - cron: "55 18 * NOV-MAR Sat"
-    - cron: "55 17 * APR-OCT Sat"
+    - cron: "55 18 * 11-3 Sat"
+    - cron: "55 17 * 4-10 Sat"
 
 jobs:
   record-classicfm:
