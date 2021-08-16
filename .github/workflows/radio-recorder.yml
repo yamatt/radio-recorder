@@ -26,7 +26,7 @@ jobs:
       - name: Run ffmpeg
         run: ffmpeg -i ${{ github.event.inputs.url }} -t ${{ github.event.inputs.duration }} -f mp3 output.mp3
       - name: Save file
-        uses: yamatt/backblaze-b2-upload-action@v5
+        uses: yamatt/backblaze-b2-upload-action@v6
         with:
           key_id: ${{ secrets.B2_KEY_ID }}
           application_key: ${{ secrets.B2_APPLICATION_KEY }}
