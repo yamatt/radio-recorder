@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Install ffmpeg
-        run: sudo apt update && apt upgrade -y && apt install -y ffmpeg
+        run: sudo apt update && sudo apt upgrade -y && sudo apt install -y ffmpeg
       - name: Get current date and time
         id: date
         run: echo "::set-output name=date::$(date --iso-8601=second)"
