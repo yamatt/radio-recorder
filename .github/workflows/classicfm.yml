@@ -7,11 +7,9 @@ on:
 
 jobs:
   record-classicfm:
-    name: Record ClassicFM
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: ./.github/workflows/radio-recorder.yml
-        with:
-          id: "Classic FM"
-          url: "http://media-ice.musicradio.com/ClassicFMMP3"
-          duration: "02:10:00"
+    name: Record Classic FM
+    uses: ./.github/workflows/radio-recorder.yml
+    with:
+      id: "Classic FM"
+      url: "http://media-ice.musicradio.com/ClassicFMMP3"
+      duration: "02:10:00"
