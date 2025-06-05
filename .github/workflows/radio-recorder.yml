@@ -19,12 +19,12 @@ on:
 
 jobs:
   record:
-    name: Record a URL
+    name: Record a Stream
     runs-on: ubuntu-24.04
     steps:
-      - uses: Iamshankhadeep/setup-ffmpeg@v1.2
+      - uses: FedericoCarboni/setup-ffmpeg@v3.1
         with:
-          version: "7.0.2"
+          ffmpeg-version: 7.0.2
       - name: Steam to file
         run: ffmpeg -i '${{ inputs.url }}' -t '${{ inputs.duration }}' -f mp3 output.mp3
       - name: Add file to artifacts
