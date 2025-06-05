@@ -8,6 +8,7 @@ jobs:
     name: Test recording
     runs-on: ubuntu-22.04
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/radio-recorder.yml
         with:
           id: "BBC World Service - Test"
