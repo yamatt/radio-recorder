@@ -6,10 +6,10 @@ on:
 jobs:
   record-test:
     name: Test recording
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
-      - uses: benc-uk/workflow-dispatch@v1
+      - uses: ./.github/workflows/radio-recorder.yml
         with:
-          workflow: Radio Recorder
-          token: ${{ secrets.PERSONAL_TOKEN }}
-          inputs: '{ "id": "bbc-world-service", "url": "http://stream.live.vc.bbcmedia.co.uk/bbc_world_service", "duration": "00:00:30" }'
+          id: "BBC World Service - Test"
+          url: "http://stream.live.vc.bbcmedia.co.uk/bbc_world_service"
+          duration: "00:00:30"
