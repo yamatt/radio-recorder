@@ -12,4 +12,4 @@ jobs:
     with:
       id: "BBC World Service - Test"
       url: "http://stream.live.vc.bbcmedia.co.uk/bbc_world_service"
-      duration: "00:00:30"
+      duration: "00:00:10"

@@ -15,13 +15,14 @@ on:
         description: "Length of time to record: hh:mm:ss"
         required: true
         type: string
+        default: "00:00:10"
 
 jobs:
   record:
     name: Record a URL
     runs-on: ubuntu-24.04
     steps:
-      - uses: FedericoCarboni/setup-ffmpeg@v3
+      - uses: FedericoCarboni/setup-ffmpeg@v3.1
         with:
           ffmpeg-version: 7.0.2
       - name: Steam to file
