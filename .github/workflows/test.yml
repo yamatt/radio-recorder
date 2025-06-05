@@ -8,6 +8,7 @@ on:
 
 jobs:
   record-test:
+    name: Record Test Stream
     uses: "./.github/workflows/radio-recorder.yml"
     with:
       id: "BBC World Service - Test"
