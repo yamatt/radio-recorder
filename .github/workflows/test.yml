@@ -5,12 +5,8 @@ on:
 
 jobs:
   record-test:
-    name: Test recording
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/workflows/radio-recorder.yml
-        with:
-          id: "BBC World Service - Test"
-          url: "http://stream.live.vc.bbcmedia.co.uk/bbc_world_service"
-          duration: "00:00:30"
+    uses: "./.github/workflows/radio-recorder.yml"
+    with:
+      id: "BBC World Service - Test"
+      url: "http://stream.live.vc.bbcmedia.co.uk/bbc_world_service"
+      duration: "00:00:30"
