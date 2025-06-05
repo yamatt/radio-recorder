@@ -21,8 +21,9 @@ jobs:
     name: Record a URL
     runs-on: ubuntu-24.04
     steps:
-      - name: Install ffmpeg
-        run: sudo apt update && sudo apt upgrade -y && sudo apt install -y ffmpeg
+      - uses: FedericoCarboni/setup-ffmpeg@v3
+        with:
+          ffmpeg-version: 7.0.2
       - name: Steam to file
         run: ffmpeg -i '${{ inputs.url }}' -t '${{ inputs.duration }}' -f mp3 output.mp3
       - name: Add file to artifacts
