@@ -1,0 +1,16 @@
+---
+name: Record Virgin Radio
+on:
+  schedule:
+    - cron: "50 8 8 6 *"
+
+jobs:
+  record-virgin-radio:
+    name: Record ClassicFM
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: ./.github/workflows/radio-recorder.yml
+        with:
+          id: "Virgin Radio UK"
+          url: "	https://radio.virginradio.co.uk/stream"
+          duration: "03:10:00"
