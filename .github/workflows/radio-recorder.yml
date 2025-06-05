@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: FedericoCarboni/setup-ffmpeg@v3.1
         with:
-          ffmpeg-version: 7.0.2
+          ffmpeg-version: release
       - name: Steam to file
         run: ffmpeg -i '${{ inputs.url }}' -t '${{ inputs.duration }}' -f mp3 output.mp3
       - name: Add file to artifacts
