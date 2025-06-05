@@ -31,5 +31,5 @@ jobs:
       - name: Add file to artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ github.event.inputs.id }}
+          name: ${{ inputs.id }}
           path: output.mp3
