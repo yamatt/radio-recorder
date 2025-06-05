@@ -26,7 +26,7 @@ jobs:
         run: |
           docker run --rm \
             -v "$PWD":/data \
-            ghcr.io/jrottenberg/ffmpeg:7.1-ubuntu2404 \
+            ghcr.io/jrottenberg/ffmpeg:7.1-alpine \
             -i '${{ inputs.url }}' -t '${{ inputs.duration }}' -f mp3 /data/output.mp3
       - name: Add file to artifacts
         uses: actions/upload-artifact@v4
