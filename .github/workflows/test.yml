@@ -2,6 +2,9 @@
 name: Test Radio Recorder
 on:
   workflow_dispatch: {}
+  push:
+    branches:
+      - main
 
 jobs:
   record-test:
