@@ -1,35 +1,32 @@
 ---
 name: Radio Recorder
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       id:
-        description: 'Name and ID for the stream'
+        description: "Name and ID for the stream"
         required: true
+        type: string
       url:
-        description: 'Stream URL'
+        description: "Stream URL"
         required: true
+        type: string
       duration:
-        description: 'Length of time to record: hh:mm:ss'
+        description: "Length of time to record: hh:mm:ss"
         required: true
+        type: string
 
 jobs:
   record:
     name: Record a URL
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Install ffmpeg
         run: sudo apt update && sudo apt upgrade -y && sudo apt install -y ffmpeg
-      - name: Get current date and time
-        id: date
-        run: echo "::set-output name=date::$(date --iso-8601=second)"
-      - name: Run ffmpeg
+      - name: Steam to file
         run: ffmpeg -i ${{ github.event.inputs.url }} -t ${{ github.event.inputs.duration }} -f mp3 output.mp3
-      - name: Save file
-        uses: yamatt/backblaze-b2-upload-action@v6
+      - name: Add file to artifacts
+        uses: actions/upload-artifact@v4
         with:
-          key_id: ${{ secrets.B2_KEY_ID }}
-          application_key: ${{ secrets.B2_APPLICATION_KEY }}
-          bucket_name: ${{ secrets.B2_BUCKET_NAME }}
-          file_path: output.mp3
-          remote_path: ${{ github.event.inputs.id }}/${{ steps.date.outputs.date }}.mp3
+          name: ${{ github.event.inputs.id }}
+          path: output.mp3
