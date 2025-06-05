@@ -22,9 +22,9 @@ jobs:
     name: Record a URL
     runs-on: ubuntu-24.04
     steps:
-      - uses: FedericoCarboni/setup-ffmpeg@v3.1
+      - uses: Iamshankhadeep/setup-ffmpeg@v1.2
         with:
-          ffmpeg-version: release
+          version: "7.0.2"
       - name: Steam to file
         run: ffmpeg -i '${{ inputs.url }}' -t '${{ inputs.duration }}' -f mp3 output.mp3
       - name: Add file to artifacts
